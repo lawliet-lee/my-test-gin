@@ -575,6 +575,26 @@ definitions:
         description: 更新时间
         type: string
     type: object
+  my_test.MyTestOne:
+    properties:
+      age:
+        type: boolean
+      code:
+        type: string
+      createdAt:
+        description: 创建时间
+        type: string
+      id:
+        description: 主键ID
+        type: integer
+      msg:
+        type: string
+      name:
+        type: string
+      updatedAt:
+        description: 更新时间
+        type: string
+    type: object
   request.AddMenuAuthorityInfo:
     properties:
       authorityId:
@@ -3288,6 +3308,192 @@ paths:
       summary: 更新MyTest
       tags:
       - MyTest
+  /myTestOne/createMyTestOne:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 创建MyTestOne
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/my_test.MyTestOne'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 创建MyTestOne
+      tags:
+      - MyTestOne
+  /myTestOne/deleteMyTestOne:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 删除MyTestOne
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/my_test.MyTestOne'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 删除MyTestOne
+      tags:
+      - MyTestOne
+  /myTestOne/deleteMyTestOneByIds:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 批量删除MyTestOne
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"批量删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 批量删除MyTestOne
+      tags:
+      - MyTestOne
+  /myTestOne/findMyTestOne:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - in: query
+        name: age
+        type: boolean
+      - in: query
+        name: code
+        type: string
+      - description: 创建时间
+        in: query
+        name: createdAt
+        type: string
+      - description: 主键ID
+        in: query
+        name: id
+        type: integer
+      - in: query
+        name: msg
+        type: string
+      - in: query
+        name: name
+        type: string
+      - description: 更新时间
+        in: query
+        name: updatedAt
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"查询成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 用id查询MyTestOne
+      tags:
+      - MyTestOne
+  /myTestOne/getMyTestOneList:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - in: query
+        name: age
+        type: boolean
+      - in: query
+        name: code
+        type: string
+      - description: 创建时间
+        in: query
+        name: createdAt
+        type: string
+      - description: 主键ID
+        in: query
+        name: id
+        type: integer
+      - description: 关键字
+        in: query
+        name: keyword
+        type: string
+      - in: query
+        name: msg
+        type: string
+      - in: query
+        name: name
+        type: string
+      - description: 页码
+        in: query
+        name: page
+        type: integer
+      - description: 每页大小
+        in: query
+        name: pageSize
+        type: integer
+      - description: 更新时间
+        in: query
+        name: updatedAt
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取MyTestOne列表
+      tags:
+      - MyTestOne
+  /myTestOne/updateMyTestOne:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: 更新MyTestOne
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/my_test.MyTestOne'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"更新成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 更新MyTestOne
+      tags:
+      - MyTestOne
   /sysDictionary/createSysDictionary:
     post:
       consumes:

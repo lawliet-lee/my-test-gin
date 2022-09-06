@@ -64,7 +64,7 @@ func (myTestOneService *MyTestOneService) GetMyTestOneInfoList(info my_testReq.M
 		db = db.Where("msg LIKE ?", "%"+info.Msg+"%")
 	}
 	if info.Age != nil {
-		db = db.Where("age < ?", info.Age)
+		db = db.Where("age = ?", info.Age)
 	}
 	err = db.Count(&total).Error
 	if err != nil {
